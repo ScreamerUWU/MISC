@@ -69,7 +69,7 @@ function Teleport()
             end
         end)
         
-        if not Success then Notify(Error, 3)
+        if not Success then Notify(Error, 3) end
     end
 end
 
