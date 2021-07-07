@@ -1,3 +1,7 @@
+local Notify = function(Text, Duration)
+   game.StarterGui:SetCore("SendNotification", {Title = "Hop:", Text = Text, Duration = Duration })
+end
+
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
@@ -58,12 +62,14 @@ end
 
 function Teleport()
     while wait() do
-        pcall(function()
+        local Success, Error = pcall(function()
             TPReturner()
             if foundAnything ~= "" then
                 TPReturner()
             end
         end)
+        
+        if not Success then Notify(Error, 3)
     end
 end
 
